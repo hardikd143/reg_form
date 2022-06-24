@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+:root {
+  --red: rgb(190, 36, 36);
+  --green: rgb(33, 165, 33);
+  --black: #202020;
+  --white: #fff;
+
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+p {
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none;
+}
+h1,h2,h3,h4,h5,h6{
+  margin-bottom: 0;
+}
+ul{
+  list-style-type: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+.max-w-500{
+  max-width: 500px !important;
+}
+.main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  margin: 10px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 5px rgb(146, 146, 146);
+  max-width: 720px;
+}
+.inputWrapper {
+  margin: 10px 0 20px 0;
+  display: flex;
+  position: relative;
+}
+.inputWrapper label,
+.inputWrapper.valid div label {
+  min-width: 100px;
+  width: 100px;
+}
+.inputWrapper input,
+.inputWrapper textarea {
+  flex-grow: 1;
+}
+.inputWrapper div {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.previewImage {
+  padding: 10px 0;
+  padding-left: 30%;
+  flex-flow: row wrap;
+  position: relative;
+}
+.previewImage .image {
+  width: 125px;
+  height: 75px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--black);
+  max-width: 100%;
+  position: absolute;
+  left: calc(30% + 40px);
+}
+.previewImage .image.hide {
+  display: none;
+}
+input[type="text"] , input[type="email"] {
+  line-height: 30px;
+  height: 30px;
+  padding: 0 10px;
+}
+textarea {
+  padding: 0 10px;
+}
+input:not([type="submit"], [type="checkbox"]),
+textarea {
+  width: 70%;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+  outline: none !important;
+}
+label[for="IsPermanent"] {
+  position: relative;
+  width: calc(100% - 100px);
+  float: right;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+#IsPermanent{
+  opacity: 0;
+}
+label[for="IsPermanent"] .customCheckbox {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  border: 1px solid var(--black);
+  margin-right: 10px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  align-items: center;
+  overflow: hidden;
+}
+label[for="IsPermanent"] .customCheckbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  z-index: -1;
+  transform: translateX(105%);
+  transition: all 0.2s linear;
+}
+#IsPermanent:checked + .customCheckbox::before {
+  transform: translateX(0);
+}
+.fBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5 !important;
+}
+.fBtn {
+  outline: none;
+  border: none;
+  padding: 0 20px;
+  height: 35px;
+  line-height: 33px;
+  border-radius: 5px;
+  color: var(--white) ;
+  border: 1px solid ;
+}
+.fBtn.black{
+  background: var(--black);
+  border-color: var(--black);
+}
+.fBtn.red{
+  background: var(--red);
+  border-color: var(--red);
+}
+.fBtn.green{
+  background: var(--green);
+  border-color: var(--green);
+}
+.fBtn.closeBtn:not(.closeDiscard) {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  padding: 0 !important;
+  justify-content: center;
+  align-items: center;
+  top: 1rem;
+  right: 1rem;
+}
+.fBtn:hover {
+  /* opacity: 0.9; */
+  background: none;
+  color: var(--black) ;
+}
+.listItems {
+  margin-top: 2rem;
+}
+.listWrapper {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  max-width: 500px;
+  margin: 20px auto;
+  /* border: 1px solid #000; */
+  box-shadow: 0 3px 5px rgb(146, 146, 146);
+  border-radius: 5px;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  z-index: 1000;
+}
+.listWrapper h5 {
+  margin: 0;
+  color: inherit;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #7a7a7a;
+}
+.listWrapper:hover h5 {
+  color: var(--black);
+}
+.listActionBtn {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: non;
+  border: none;
+  background: none;
+  border-radius: 5px;
+}
+.listActionBtn:hover {
+  color: var(--white)!important;
+}
+.listActionBtn.red {
+  color: var(--red);
+}
+.listActionBtn.red:hover {
+  background: var(--red);
+}
+.listActionBtn.green {
+  color: var(--green);
+}
+.listActionBtn.green:hover {
+  background: var(--green);
+}
+
+/* .listActionBtn.closeBtn:hover {
+  opacity: 0.9;
+} */
+/* .listActionBtn.deleteItem{
+  display: none;
+}
+.listWrapper:hover .listActionBtn.deleteItem{
+  display: block;
+} */
+.listActionBtn.viewEdit{
+  font-size: 18px;
+}
+.previewBtn {
+  background: var(--black);
+  color: var(--white);
+}
+
+.editModal , .viewModal, .deleteModal, .discardModal {
+  background: rgb(0, 0, 0, 0.4);
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: flex-start;
+  /* align-items: center; */
+}
+.smallModal{
+  align-items: center;
+}
+.modal.hide {
+  display: none;
+}
+.editform , .viewform , .deleteform, .discardform{
+  background: var(--white);
+  padding: 1rem;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgb(146, 146, 146);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.animateModal{
+  animation: animateModal 0.2s linear 1 forwards;
+}
+@keyframes animateModal {
+  from {
+    top: 20px;
+  }
+  to {
+    top: 0px;
+  }
+}
+.imgWrapper {
+  /* padding-left: 30%; */
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-gap: 10px;
+  flex-grow: 1;
+}
+.imgWrapper.haveSelected {
+  padding-top: 30px;
+}
+.imgWrapper .img {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+  width: 100px;
+  height: 60px;
+  box-shadow: 0 2px 5px #b8b8b8;
+  max-width: 100%;
+}
+.imgWrapper .selectedCount {
+  position: absolute;
+  display: none;
+  background: var(--black);
+  color: var(--white);
+  width: auto;
+  padding: 0 10px;
+  border-radius: 5px;
+  min-width: 100px;
+}
+.imgWrapper.haveSelected .selectedCount {
+  display: block;
+}
+.imgWrapper .previewLabel.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--black);
+}
+.imgWrapper .previewLabel.img span {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+.imgWrapper .previewLabel.img.removeimagesLabel {
+  border-color: var(--red);
+  color: var(--red);
+  display: none;
+}
+.imgWrapper .previewLabel.img.removeimagesLabel svg {
+  width: 20px;
+  height: 20px;
+}
+
+.last_updated {
+  font-size: 12px;
+  display: flex;
+  align-items: flex-end;
+}
+.last_updated span {
+  font-weight: 700;
+  margin-left: 6px;
+}
+label.error {
+  position: absolute;
+  top: calc(100% + 1px);
+  right: 0;
+  width: auto !important;
+  padding: 0 5px;
+  border-radius: 3px;
+  font-size: 12px !important;
+  background: var(--red);
+  color: var(--white);
+}
+.imgError {
+  position: absolute;
+  left: 112px;
+  bottom: -25px !important;
+  width: auto !important;
+  font-size: 12px !important;
+  border-radius: 3px;
+  background: var(--red);
+  padding: 0 5px;
+  color: var(--white);
+  display: none;
+}
+.paginationjs{
+ user-select: none; 
+}
+.paginationjs ul{
+  display: flex;
+  justify-content: center;
+  flex-wrap: row wrap;
+  padding: 0;
+  position: relative;
+}
+.paginationjs ul li{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2px 5px;
+  border: 1px solid #7a7a7a;
+  box-shadow: 0 2px 3px rgb(194, 194, 194);
+}
+.paginationjs ul li a{
+  color: var(--black);
+}
+.paginationjs ul li.active{
+  background: var(--black);
+}
+.paginationjs ul li.active A{
+  color: var(--white);
+}
+/* .paginationjs-prev , .paginationjs-next{
+position: absolute;
+}
+.paginationjs-prev{
+  left: -40px;
+}
+.paginationjs-next{
+  right: 40px;
+} */
+.shake{
+  animation: shake 0.4s 1 linear;
+}
+@keyframes shake {
+  0% { transform: translate(30px); }
+  20% { transform: translate(-30px); }
+  40% { transform: translate(15px); }
+  60% { transform: translate(-15px); }
+  80% { transform: translate(8px); }
+  100% { transform: translate(0px);  }
+}
